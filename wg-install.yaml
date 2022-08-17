@@ -1,8 +1,10 @@
 ---
- - hosts: wg
+- hosts: wg
   become: true
+
   tasks:
-    - name: Download WG scripts
-      get_url: 
+
+  - name: Download WG scripts
+    uri:
       url: "https://raw.githubusercontent.com/angristan/wireguard-install/master/wireguard-install.sh"
       dest: /root
