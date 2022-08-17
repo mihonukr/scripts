@@ -2,6 +2,10 @@
 - hosts: wg
   become: true
 
+  handlers:
+      - name: restart fail2ban
+        service: name=fail2ban state=restarted
+
   tasks:
 
   - name: copy
@@ -10,3 +14,4 @@
     shell: sed -i 's/#ignoreip =/ignoreip = 163...165 136...180/' /etc/fail2ban/jail.local
   - name: replace bantime
     shell: sed -i 's/bantime  = 10m/bantime  = 60m/' /etc/fail2ban/jail.local
+    notify: restart fail2ban
