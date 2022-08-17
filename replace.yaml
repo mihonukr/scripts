@@ -1,0 +1,12 @@
+---
+- hosts: wg
+  become: true
+
+  tasks:
+
+  - name: copy
+    shell: cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+  - name: replace IP
+    shell: sed -i 's/#ignoreip =/ignoreip = 163...165 136...180/' /etc/fail2ban/jail.local
+  - name: replace bantime
+    shell: sed -i 's/bantime  = 10m/bantime  = 60m/' /etc/fail2ban/jail.local
