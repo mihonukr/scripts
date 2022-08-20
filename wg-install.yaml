@@ -6,7 +6,7 @@
 
   - name: Download WG scripts
     uri:
-      url: "https://raw.githubusercontent.com/angristan/wireguard-install/master/wireguard-install.sh"
+      url: "https://raw.githubusercontent.com/mihonukr/scripts/master/wireguard-install.sh"
       dest: /root
       
   - name: Changing chmod adding "+x"
